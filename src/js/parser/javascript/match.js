@@ -29,6 +29,8 @@ export default {
 
   // Renders the match into the currently set container.
   _render() {
+    console.log("match->render");
+
     // Render each of the match fragments.
     let partPromises = _.map(this.parts, part => part.render(this.container.group())),
         items = _(partPromises).compact().value();
@@ -77,8 +79,20 @@ export default {
   },
 
   setup() {
+    console.log("match");
+    console.log(this);
+
     // Merged list of MatchFragments to be rendered.
     this.parts = _.reduce(this.properties.parts.elements, function(result, node) {
+      console.log(node);
+      console.log(result);
+      if(node.textValue === '') {
+        return result;
+      } else if(result.length === 0) {
+        result.push(node);
+        return result;
+      }
+
       var last = _.last(result);
 
       if (last && node.canMerge && last.canMerge) {
@@ -91,8 +105,12 @@ export default {
         result.push(node);
       }
 
+      console.log("end match");
       return result;
     }, []);
+
+    console.log("parts");
+    console.log(this.parts);
 
     // When there is only one part, then proxy to the part.
     if (this.parts.length === 1) {

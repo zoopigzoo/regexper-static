@@ -14,6 +14,7 @@ export default {
 
   // Renders the root into the currently set container.
   _render() {
+    console.log("root->render");
     let flagText;
 
     // Render a label for any flags that have been set of the expression.
@@ -44,6 +45,9 @@ export default {
   },
 
   setup() {
+    console.log("root")
+    console.log(this)
+    
     // Convert list of flags into text describing each flag.
     this.flags = _(this.properties.flags.textValue)
       .uniq().sort()

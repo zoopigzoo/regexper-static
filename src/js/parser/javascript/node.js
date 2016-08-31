@@ -91,6 +91,9 @@ export default class Node {
   //    must be specified, but if it has already been set, then it does not
   //    need to be provided to render.
   render(container) {
+    console.log("node -> render")
+    console.log(this);
+    
     if (container) {
       this.container = container;
     }

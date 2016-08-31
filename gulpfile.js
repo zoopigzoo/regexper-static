@@ -35,15 +35,15 @@ gulp.task('default', 'Auto-rebuild site on changes.', ['server', 'docs'], functi
 });
 
 gulp.task('docs', 'Build documentation into ./docs directory.', ['docs:files'], function() {
-  folderToc('./docs', {
-    filter: '*.html'
-  });
+  // folderToc('./docs', {
+  //   filter: '*.html'
+  // });
 });
 
 gulp.task('docs:files', false, function() {
-  return gulp.src(config.globs.js)
-    .pipe(docco())
-    .pipe(gulp.dest('./docs'));
+  // return gulp.src(config.globs.js)
+  //   .pipe(docco())
+  //   .pipe(gulp.dest('./docs'));
 });
 
 gulp.task('server', 'Start development server.', ['build'], function() {
@@ -131,16 +131,16 @@ gulp.task('verify', 'Verify (lint and run tests) scripts.', ['karma:single', 'li
 gulp.task('verify:watch', 'Auto-verify scripts.', ['karma', 'lint:watch']);
 
 gulp.task('karma', 'Auto-run scripting tests.', function(done) {
-  new karma.Server({
-    configFile: path.join(__dirname, 'karma.conf.js')
-  }, done).start();
+  // new karma.Server({
+  //   configFile: path.join(__dirname, 'karma.conf.js')
+  // }, done).start();
 });
 
 gulp.task('karma:single', 'Run scripting tests', function(done) {
-  new karma.Server({
-    configFile: path.join(__dirname, 'karma.conf.js'),
-    singleRun: true
-  }, done).start();
+  // new karma.Server({
+  //   configFile: path.join(__dirname, 'karma.conf.js'),
+  //   singleRun: true
+  // }, done).start();
 });
 
 gulp.task('lint', 'Lint scripts', function() {

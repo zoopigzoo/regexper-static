@@ -27,6 +27,8 @@ export default {
 
   // Renders the fragment into the currently set container.
   _render() {
+    console.log("match_fragment->render");
+    
     return this.content.render(this.container.group())
       .then(() => {
         let box, paths;
@@ -74,6 +76,9 @@ export default {
   },
 
   setup() {
+    console.log("match_fragment:");
+    console.log(this);
+
     // Then content of the fragment.
     this.content = this.properties.content;
     // The repetition rule for the fragment.
@@ -89,5 +94,8 @@ export default {
       // Fragments that have skip or loop lines cannot be merged with others.
       this.canMerge = false;
     }
+
+    this.canMerge = false;
+    console.log("end match fragment");
   }
 };

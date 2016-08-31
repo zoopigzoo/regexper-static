@@ -115,6 +115,9 @@ export default {
   },
 
   setup() {
+    console.log("regexp:");
+    console.log(this);
+    
     if (this.properties.alternates.elements.length === 0) {
       // When there is only one match node to render, proxy to it.
       this.proxy = this.properties.match;
@@ -125,5 +128,8 @@ export default {
           element => element.properties.match)
       );
     }
+
+    console.log("regexp: matches:");
+    console.log(this.matches);
   }
 };

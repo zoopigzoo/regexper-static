@@ -220,7 +220,9 @@ export default class Regexper {
         throw message;
       })
       // When parsing is successful, render the parsed expression.
-      .then(parser => parser.render())
+      .then(parser => {
+        parser.render()
+      })
       // Once rendering is complete:
       //  - Update links
       //  - Display any warnings
@@ -242,6 +244,9 @@ export default class Regexper {
           util.track('send', 'event', 'visualization', 'cancelled');
           this.state = '';
         } else if (parseError) {
+          console.log("catch!");
+          console.log(message);
+          console.log(parseError);
           util.track('send', 'event', 'visualization', 'parse error');
         } else {
           throw message;

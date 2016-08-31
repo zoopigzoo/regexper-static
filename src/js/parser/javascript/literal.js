@@ -8,6 +8,8 @@ export default {
 
   // Renders the literal into the currently set container.
   _render() {
+    console.log("literal->render");
+
     return this.renderLabel(['\u201c', this.literal, '\u201d'])
       .then(label => {
         let spans = label.selectAll('tspan');
@@ -34,8 +36,11 @@ export default {
   },
 
   setup() {
+    console.log("literal:");
+    console.log(this);
+    
     // Value of the literal.
-    this.literal = this.properties.literal.textValue;
+    this.literal = this.textValue;
     // Ordinal value of the literal for use in
     // [CharsetRange](./charset_range.html).
     this.ordinal = this.literal.charCodeAt(0);
