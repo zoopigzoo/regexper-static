@@ -3,9 +3,9 @@ grammar Parsers
   regexp <- match:match alternates:""? <Regexp>
   match <- ""? parts:match_fragment* <Match>
   match_fragment <- "(" repeat:repeat? group? content:(element_regex / element_entity / element_wordset / terminal) ")" " "? <MatchFragment>
-  element_regex <- "\\r{" [^}]+ "}"
+  element_regex <- "\\r{" emsg:[^}]+ "}" <Nestregex>
   element_entity <- "\\e{" etype:[\d]+ "}" <Entity>
-  element_wordset <- "$" [A-Z]+
+  element_wordset <- "$" emsg:[A-Z]+ <Wordset>
   terminal <- literal <Literal>
   literal <- literal:[^()]+
   group <- ":[" [a-zA-Z]+ "]"

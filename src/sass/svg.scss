@@ -44,6 +44,18 @@ circle {
   fill: $gold;
 }
 
+.nestregex rect {
+  fill: $light-gray;
+}
+
+.wordset rect {
+  fill: $tan;
+}
+
+.wordset .label {
+  cursor: pointer;
+}
+
 .charset .charset-box {
   fill: $tan;
 }

@@ -4,7 +4,7 @@
 import _ from 'lodash';
 
 export default {
-  type: 'entity',
+  type: 'nestregex',
 
   // Renders the literal into the currently set container.
   _render() {
@@ -21,15 +21,6 @@ export default {
 
   setup() {
     // Value of the literal.
-    this.etype = this.properties.etype.textValue;
-    if(this.etype === "1") {
-        this.emsg = "PER";
-    } else if(this.etype === "2") {
-        this.emsg = "LOC";
-    } else if(this.etype === "3") {
-        this.emsg = "ORG";
-    } else {
-        this.emsg = "ENTITY[" + this.etype + "]";
-    }
+    this.emsg = this.properties.emsg.textValue;
   }
 };
